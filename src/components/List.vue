@@ -10,7 +10,7 @@ const isRequest = ref<boolean>(false)
 
 const getList = (list: number): Promise<ListProps[]>  => {
   console.log('请求中...');
-  const delay = Math.floor(Math.random() + 5)
+  const delay = Math.ceil(Math.random() * 5) * 1000
   return new Promise(resolve => {
     setTimeout(() => {
       const data =  new Array(list).fill('').map(_ => {
@@ -19,7 +19,7 @@ const getList = (list: number): Promise<ListProps[]>  => {
       resolve(
         data
       )
-    }, 1000);
+    }, delay);
   })
 }
 
